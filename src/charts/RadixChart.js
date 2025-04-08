@@ -182,7 +182,7 @@ class RadixChart extends Chart {
     }
 
     fromPoints = fromPoints ?? this.#data.points
-    toPoints = toPoints ?? [...this.#data.points, {name:"AS", angle:0}, {name:"IC", angle:this.#data.cusps.at(3)}, {name:"DS", angle:this.#data.cusps.at(6)}, {name:"MC", angle:this.#data.cusps.at(9)}]
+    toPoints = toPoints ?? this.#data.points
     aspects = aspects ?? this.#settings.DEFAULT_ASPECTS
 
 

@@ -15,6 +15,14 @@ export const ASPECTS_ID = "aspects"
 export const DRAW_ASPECTS = true
 
 /*
+* Draw aspects to angles by default
+* @constant
+* @type {Boolean}
+* @default true
+*/
+export const DRAW_ASPECTS_TO_ANGLES = true
+
+/*
 * Font size - aspects
 * @constant
 * @type {Number}

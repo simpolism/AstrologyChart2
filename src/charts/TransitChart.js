@@ -111,7 +111,9 @@ class TransitChart extends Chart {
     }
 
     fromPoints = fromPoints ?? this.#data.points
-    toPoints = toPoints ?? [...this.#radix.getData().points, {name:"AS", angle:0}, {name:"IC", angle:this.#radix.getData().cusps.at(3)}, {name:"DS", angle:180}, {name:"MC", angle:this.#radix.getData().cusps.at(9)}]
+    toPoints = toPoints ?? (this.#settings.DRAW_ASPECTS_TO_ANGLES
+      ? [...this.#radix.getData().points, {name:"AS", angle:0}, {name:"IC", angle:this.#radix.getData().cusps.at(3)}, {name:"DS", angle:180}, {name:"MC", angle:this.#radix.getData().cusps.at(9)}]
+      : this.#radix.getData().points)
     aspects = aspects ?? DefaultSettings.DEFAULT_ASPECTS
 
     return AspectUtils.getAspects(fromPoints, toPoints, aspects)

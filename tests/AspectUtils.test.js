@@ -32,12 +32,21 @@ test('AspectUtils.orb', () => {
 })
 
 test('AspectUtils.getAspects', () => {
+  // check in-sign aspects
+  let ASPECT = [{name:"Conjunction", angle:0, orb:2}, {name:"Opposition", angle:180, orb:2}, {name:"Trine", angle:120, orb:2}]
+  let FROM_POINTS = [{name:"Moon", angle:2}, {name:"Sun", angle:181}, {name:"Mercury", angle:123}]
+  let TO_POINTS = [{name:"Moon", angle:2}, {name:"Sun", angle:181}, {name:"Mercury", angle:123}]
 
-  const ASPECT = [{name:"Conjunction", angle:0, orb:2}, {name:"Opposition", angle:180, orb:2}, {name:"Trine", angle:120, orb:2}]
-  const FROM_POINTS = [{name:"Moon", angle:0}, {name:"Sun", angle:179}, {name:"Mercury", angle:121}]
-  const TO_POINTS = [{name:"Moon", angle:0}, {name:"Sun", angle:179}, {name:"Mercury", angle:121}]
-
-  const aspects = AspectUtils.getAspects(FROM_POINTS, TO_POINTS, ASPECT)
+  let aspects = AspectUtils.getAspects(FROM_POINTS, TO_POINTS, ASPECT)
 
   expect(aspects.length).toBe(7)
+
+  // check out-of-sign aspects
+  ASPECT = [{name:"Conjunction", angle:0, orb:2}, {name:"Opposition", angle:180, orb:2}, {name:"Trine", angle:120, orb:2}]
+  FROM_POINTS = [{name:"Moon", angle:0}, {name:"Sun", angle:179}, {name:"Mercury", angle:119}]
+  TO_POINTS = [{name:"Moon", angle:0}, {name:"Sun", angle:179}, {name:"Mercury", angle:119}]
+
+  aspects = AspectUtils.getAspects(FROM_POINTS, TO_POINTS, ASPECT)
+
+  expect(aspects.length).toBe(3)
 })

@@ -235,8 +235,8 @@ class RadixChart extends Chart {
     this.#drawAstrologicalSigns()
     this.#drawRuler()
     this.#drawPoints(data)
-    this.#drawCusps(data)
-    this.#drawMainAxisDescription(data)
+    data.cusps.length > 0 && this.#drawCusps(data)
+    data.cusps.length > 0 && this.#drawMainAxisDescription(data)
     this.#drawBorders()
     this.#settings.DRAW_ASPECTS && this.drawAspects()
   }

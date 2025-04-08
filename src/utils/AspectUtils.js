@@ -50,14 +50,28 @@ class AspectUtils {
    *
    * @return {Array<Object>}
    */
-  static getAspects(fromPoints, toPoints, aspects){
+  static getAspects(fromPoints, toPoints, aspects, checkSign = false){
     const aspectList = []
     for (const fromP of fromPoints){
       for (const toP of toPoints){
         for (const aspect of aspects){
           const orb = AspectUtils.orb(fromP.angle, toP.angle, aspect.angle)
           if( Math.abs( orb ) <=  aspect.orb ){
-            aspectList.push( { aspect:aspect, from:fromP, to:toP, precision:orb } )
+            if (checkSign) {
+              // additional check to remove out-of-sign aspects
+              const fromPSign = Math.floor(fromP.angle / 30);
+              const toPSign = Math.floor(toP.angle / 30);
+              const nSigns = Math.floor(aspect.angle / 30);
+              let signDiff = Math.abs(fromPSign - toPSign);
+              if (signDiff > 6) {
+                signDiff = 12 - signDiff;
+              }
+              if (nSigns === signDiff) {
+                aspectList.push( { aspect:aspect, from:fromP, to:toP, precision:orb } )
+              }
+            } else {
+              aspectList.push( { aspect:aspect, from:fromP, to:toP, precision:orb } )
+            }
           }
         }
       }

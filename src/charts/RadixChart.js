@@ -187,7 +187,7 @@ class RadixChart extends Chart {
     aspects = aspects ?? DefaultSettings.DEFAULT_ASPECTS
 
 
-    return AspectUtils.getAspects(fromPoints, toPoints, aspects).filter( aspect => aspect.from.name != aspect.to.name)
+    return AspectUtils.getAspects(fromPoints, toPoints, aspects, this.#settings.DRAW_OUT_OF_SIGN_ASPECTS).filter( aspect => aspect.from.name != aspect.to.name)
   }
 
   /**

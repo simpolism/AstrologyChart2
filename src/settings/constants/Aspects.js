@@ -15,6 +15,14 @@ export const ASPECTS_ID = "aspects"
 export const DRAW_ASPECTS = true
 
 /*
+* Draw out of sign aspects
+* @constant
+* @type {Boolean}
+* @default true
+*/
+export const DRAW_OUT_OF_SIGN_ASPECTS = true
+
+/*
 * Font size - aspects
 * @constant
 * @type {Number}

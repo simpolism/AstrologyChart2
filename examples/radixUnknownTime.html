@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Radix</title>
+    <style>
+      #paper{
+        background-color:#eee;
+        width:800px;
+        height:800px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="aspects-table" class="alert">
+      <p>Houses can be disabled via settings if exact time is unknown or if unnecessary by setting cusp data to an empty array.</p>
+    </div>
+
+    <div id="paper"></div>
+
+    <script src="../dist/astrochart2.js"></script>
+    <script>
+      // fetch from server
+      let data = {
+      	"points":[{name:"Moon", angle:64}, {name:"Sun", angle:273}, {name:"Mercury", angle:194}, {name:"Venus", angle:158}, {name:"Mars", angle:304}, {name:"Jupiter", angle:229}, {name:"Saturn", angle:255, isRetrograde:true}, {name:"Uranus", angle:347}, {name:"Neptune", angle:21, isRetrograde:true}, {name:"Pluto", angle:233}, {name:"Lilith", angle:244}, {name:"Chiron", angle:339}, {name:"NNode", angle:285}],
+        "cusps": [],
+      }
+
+      new astrology.Universe('paper').radix().setData( data )
+    </script>
+  </body>
+</html>

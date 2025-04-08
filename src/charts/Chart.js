@@ -44,7 +44,7 @@ class Chart {
       }
     }
 
-    if (data.cusps.length !== 12) {
+    if (data.cusps.length > 0 && data.cusps.length !== 12) {
       return {
         isValid: false,
         message: "cusps.length !== 12"

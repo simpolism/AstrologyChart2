@@ -25,7 +25,7 @@ class Point {
     this.#angle = pointData.angle ?? 0
     this.#isRetrograde = pointData.isRetrograde ?? false
 
-    if (!Array.isArray(cusps) || cusps.length != 12) {
+    if (!Array.isArray(cusps) || (cusps.length > 0 && cusps.length != 12)) {
       throw new Error("Bad param cusps. ")
     }
 

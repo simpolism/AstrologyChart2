@@ -1,6 +1,5 @@
 import DefaultSettings from '../settings/DefaultSettings.js';
 import SVGUtils from '../utils/SVGUtils.js';
-import Utils from '../utils/Utils.js';
 import RadixChart from '../charts/RadixChart.js';
 import TransitChart from '../charts/TransitChart.js';
 

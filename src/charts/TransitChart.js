@@ -4,7 +4,6 @@ import Chart from './Chart.js'
 import Utils from '../utils/Utils.js';
 import AspectUtils from '../utils/AspectUtils.js';
 import Point from '../points/Point.js'
-import DefaultSettings from '../settings/DefaultSettings.js';
 
 /**
  * @class
@@ -112,7 +111,7 @@ class TransitChart extends Chart {
 
     fromPoints = fromPoints ?? this.#data.points
     toPoints = toPoints ?? [...this.#radix.getData().points, {name:"AS", angle:0}, {name:"IC", angle:this.#radix.getData().cusps.at(3)}, {name:"DS", angle:180}, {name:"MC", angle:this.#radix.getData().cusps.at(9)}]
-    aspects = aspects ?? DefaultSettings.DEFAULT_ASPECTS
+    aspects = aspects ?? this.#settings.DEFAULT_ASPECTS
 
     return AspectUtils.getAspects(fromPoints, toPoints, aspects)
   }
